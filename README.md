@@ -5,8 +5,8 @@ Hopefully, this simplifies the process so that you may be on your journey to fur
 
 
 This tutorial follows:
-[a_link](https://github.com/cfenollosa/os-tutorial)
-Also special thanks to my mentor Swati Gupta [a_link](https://github.com/guptaNswati)
+[cfenollosa/os-tutorial](https://github.com/cfenollosa/os-tutorial)
+Also special thanks to my mentor Swati Gupta [github/guptaNswati](https://github.com/guptaNswati)
 Who guided me along through my bumps in creating my very first simple OS.
 
 #Install and Launch Your Virtual Maching Ubuntu Linux Environment
@@ -23,13 +23,13 @@ Run `vagrant up`
 Run `vagrant ssh`
 You are in your Virtual Machine!!!
 More Info:
-[a link](https://en.wikipedia.org/wiki/Virtual_machine)
+[VM wiki](https://en.wikipedia.org/wiki/Virtual_machine)
  
 #Install QEMU with Nasm
 QEMU is a generic and open source machine emulator and virtualizer.
 The Netwide Assembler (NASM) is an assembler and disassembler for the Intel x86 architecture. It can be used to write 16-bit, 32-bit (IA-32) and 64-bit (x86-64) programs. NASM is considered to be one of the most popular assemblers for Linux.
 `sudo apt-get install build-essential qemu nasm`
-[a link](https://www.qemu.org/download/)
+[QEMU](https://www.qemu.org/download/)
 
 #Prepare the Build
 The GNU Compiler Collection is an advanced piece of software with dependencies. You need to install certain dependencies in order to build gcc. 
@@ -48,10 +48,10 @@ The GNU Compiler Collection is an advanced piece of software with dependencies. 
 #installing Bison
 `sudo apt-get install Bison`
 More Info:
-[a_link](https://wiki.osdev.org/GCC_Cross_Compiler)
+[GCC-CrossCompiler](https://wiki.osdev.org/GCC_Cross_Compiler)
 
 #Build binutils and a cross-compiled gcc, and we will put them into /usr/local/i386elfgcc, so let's export some paths now. Feel free to change them to your liking.
-`export PREFIX="/usr/local/cross-compiler"
+`export PREFIX="/usr/local/cross-compiler"`
 `export TARGET=i686-elf`
 `export PATH="$PREFIX/bin:$PATH"`
 
@@ -59,7 +59,8 @@ More Info:
 `mkdir /tmp/src`
 `cd /tmp/src`
 `curl -O http://ftp.gnu.org/gnu/binutils/binutils-2.30.tar.gz`
-[a_link](https://ftp.gnu.org/gnu/binutils/)
+More Info:
+[GNU ORG](https://ftp.gnu.org/gnu/binutils/)
 
 `tar xf binutils-2.30.tar.gz`
 `mkdir binutils-build`
@@ -74,7 +75,7 @@ More Info:
 `mkswap $SWAP`
 `sudo swapon $SWAP`
 More Info:
-[a_link](https://stackoverflow.com/questions/18389612/make-exits-with-error-2-when-trying-to-install-gcc-4-8-1)
+[StackOverFlow/Error](https://stackoverflow.com/questions/18389612/make-exits-with-error-2-when-trying-to-install-gcc-4-8-1)
 
 #cross-compiler gcc
 `cd /tmp/src`
