@@ -50,7 +50,8 @@ The GNU Compiler Collection is an advanced piece of software with dependencies. 
 * More Info:
 * [GCC-CrossCompiler](https://wiki.osdev.org/GCC_Cross_Compiler)
 
-# Build binutils and a cross-compiled gcc, and we will put them into /usr/local/i386elfgcc, so let's export some paths now. Feel free to change them to your liking.
+# Build binutils and a cross-compiled gcc
+we will put them into /usr/local/cross-compiler, so let's export some paths now. Feel free to change them to your liking.
 * `export PREFIX="/usr/local/cross-compiler"`
 * `export TARGET=i686-elf`
 * `export PATH="$PREFIX/bin:$PATH"`
@@ -68,7 +69,8 @@ The GNU Compiler Collection is an advanced piece of software with dependencies. 
 * `../binutils-2.24/configure --target=$TARGET --enable-interwork --enable-multilib --disable-nls --disable-werror --prefix=$PREFIX 2>&1 | tee configure.log`
 * `sudo make all install 2>&1 | tee make.log`
 
-# If the peak RAM used during installation is greater than that of EC2 micro instance. Use a larger instance or use swap. If you are using VM like myself you will need this step before proceeding with gcc.
+# SWAP # READ PLEASE!! 
+If the peak RAM used during installation is greater than that of EC2 micro instance. Use a larger instance or use swap. If you are using VM like myself you will need this step before proceeding with gcc.
 
 * `SWAP=/tmp/swap`
 * `dd if=/dev/zero of=$SWAP bs=1M count=500`
@@ -89,34 +91,34 @@ The GNU Compiler Collection is an advanced piece of software with dependencies. 
 * `sudo make install-gcc`
 * `sudo make install-target-libgcc`
 
-# check GNU binutils and the compiler
+### check GNU binutils and the compiler
 * `ls /usr/local/cross-compiler/bin`, prefixed by i686-elf-
 
-# compile system independent kernel.c 
+### compile system independent kernel.c 
 * `i686-elf-gcc -ffreestanding -c kernel.c -o kernel.o`
 
-# compile kernel_start
+### compile kernel_start
 * `nasm kernel_start.asm -f elf -o kernel_start.o`
 
-# link both obj files to make a binary and place kernel at 0x1000 location
+### link both obj files to make a binary and place kernel at 0x1000 location
 * `i686-elf-ld -o kernel.bin -Ttext 0x1000 kernel_start.o kernel.o --oformat binary`
 
-# compile bootsect
+### compile bootsect
 * `nasm bootsector.asm -f bin -o bootsector.bin`
 
-# create one kernel image joining both bin with bootsect at head
+### create one kernel image joining both bin with bootsect at head
 * `cat bootsector.bin kernel.bin > kernel-image.bin`
 
 # to run on vm, create a flp image 
 #directly copy kernel.bin to the first sector of the floppy disk image
 * `dd status=noxfer conv=notrunc if=kernel-image.bin of=disk.flp`
 
-# run and use -curses to bypass sdl restrictions
+### run and use -curses to bypass sdl restrictions
 * `qemu-system-x86_46 -curses -fda kernel-image.bin`
 
-# to exit
+### to exit
 * `alt+2`, enter quit
 
-# cleanup
+### cleanup
 * `rm *.bin *.o *.img *.flp *.iso`
 * `rm -rf cdromiso`
