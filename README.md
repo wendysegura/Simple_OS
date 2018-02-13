@@ -9,46 +9,46 @@ This tutorial follows:
 Also special thanks to my mentor Swati Gupta [github/guptaNswati](https://github.com/guptaNswati)
 Who guided me along through my bumps in creating my very first simple OS.
 
-#Install and Launch Your Virtual Maching Ubuntu Linux Environment
-Open a terminal and run vagrant box list will print the list of boxes available on the computers.
+###Install and Launch Your Virtual Maching Ubuntu Linux Environment
+* Open a terminal and run vagrant box list will print the list of boxes available on the computers.
 `vagrant box list`
-#1
+* #1
 `vagrant init`
-#2
+* #2
 Open `Vagrantfile` and replace where is says `base` with `ubuntu/trusty64` as we are running Ubuntu in this VM.
 Save file
-#3
+* #3
 Run `vagrant up`
-#4
+* #4
 Run `vagrant ssh`
-You are in your Virtual Machine!!!
-More Info:
-[VM wiki](https://en.wikipedia.org/wiki/Virtual_machine)
+* You are in your Virtual Machine!!!
+* More Info:
+* [VM wiki](https://en.wikipedia.org/wiki/Virtual_machine)
  
-#Install QEMU with Nasm
-QEMU is a generic and open source machine emulator and virtualizer.
-The Netwide Assembler (NASM) is an assembler and disassembler for the Intel x86 architecture. It can be used to write 16-bit, 32-bit (IA-32) and 64-bit (x86-64) programs. NASM is considered to be one of the most popular assemblers for Linux.
-`sudo apt-get install build-essential qemu nasm`
-[QEMU](https://www.qemu.org/download/)
+###Install QEMU with Nasm
+* QEMU is a generic and open source machine emulator and virtualizer.
+* The Netwide Assembler (NASM) is an assembler and disassembler for the Intel x86 architecture. It can be used to write 16-bit, 32-bit (IA-32) and 64-bit (x86-64) programs. NASM is considered to be one of the most popular assemblers for Linux.
+* `sudo apt-get install build-essential qemu nasm`
+* [QEMU](https://www.qemu.org/download/)
 
-#Prepare the Build
+###Prepare the Build
 The GNU Compiler Collection is an advanced piece of software with dependencies. You need to install certain dependencies in order to build gcc. 
-#installing gmp
+* #installing gmp
 `sudo apt-get install libgmp3-dev`
-#installing mpfr
+* #installing mpfr
 `sudo apt-get install libmpfr-dev libmpfr-doc libmpfr4 libmpfr4-db`   
-#installing libmpc
+* #installing libmpc
 `sudo apt-get install libmpc-dev`
-#installing Make
+* #installing Make
 `sudo apt-get install make`
-#installing Texinfo
+* #installing Texinfo
 `sudo apt-get install Texinfo`
-#installing Flex
+* #installing Flex
 `sudo apt-get install Flex`
-#installing Bison
+* #installing Bison
 `sudo apt-get install Bison`
-More Info:
-[GCC-CrossCompiler](https://wiki.osdev.org/GCC_Cross_Compiler)
+* More Info:
+* [GCC-CrossCompiler](https://wiki.osdev.org/GCC_Cross_Compiler)
 
 #Build binutils and a cross-compiled gcc, and we will put them into /usr/local/i386elfgcc, so let's export some paths now. Feel free to change them to your liking.
 `export PREFIX="/usr/local/cross-compiler"`
