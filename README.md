@@ -109,8 +109,8 @@ If the peak RAM used during installation is greater than that of EC2 micro insta
 ### create one kernel image joining both bin with bootsect at head
 * `cat bootsector.bin kernel.bin > kernel-image.bin`
 
-### to run on vm, create a flp image 
-#directly copy kernel.bin to the first sector of the floppy disk image
+### run on vm, create a flp image 
+directly copy kernel.bin to the first sector of the floppy disk image
 * `dd status=noxfer conv=notrunc if=kernel-image.bin of=disk.flp`
 
 ### run and use -curses to bypass sdl restrictions
