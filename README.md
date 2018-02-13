@@ -60,16 +60,15 @@ we will put them into /usr/local/cross-compiler, so let's export some paths now.
 * `mkdir /tmp/src`
 * `cd /tmp/src`
 * `curl -O http://ftp.gnu.org/gnu/binutils/binutils-2.30.tar.gz`
-* More Info:
-* [GNU ORG](https://ftp.gnu.org/gnu/binutils/)
-
 * `tar xf binutils-2.30.tar.gz`
 * `mkdir binutils-build`
 * `cd binutils-build`
 * `../binutils-2.24/configure --target=$TARGET --enable-interwork --enable-multilib --disable-nls --disable-werror --prefix=$PREFIX 2>&1 | tee configure.log`
 * `sudo make all install 2>&1 | tee make.log`
+* More Info:
+* [GNU ORG](https://ftp.gnu.org/gnu/binutils/)
 
-### SWAP # READ PLEASE!! 
+### SWAP # READ PLEASE 
 If the peak RAM used during installation is greater than that of EC2 micro instance. Use a larger instance or use swap. If you are using VM like myself you will need this step before proceeding with gcc.
 
 * `SWAP=/tmp/swap`
