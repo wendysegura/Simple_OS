@@ -1,6 +1,6 @@
 # Simple_OS
 Tutorial on how to create you own very simple Operating System
-I have created an indepth detailed instructions on how to install the packages needed.
+I have created an indepth detailed instructions on how to install the packages needed simply open SETUP.md and follow along.
 Hopefully, this simplifies the process so that you may be on your journey to further learn on how and OS works at the most basic, simplistic of levels, if there is such a thing. 
 
 
