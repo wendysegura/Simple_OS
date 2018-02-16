@@ -106,14 +106,14 @@ If the peak RAM used during installation is greater than that of EC2 micro insta
 * `nasm bootsector.asm -f bin -o bootsector.bin`
 
 ### create one kernel image joining both bin with bootsect at head
-* `cat bootsector.bin kernel.bin > kernel-image.bin`
+* `cat bootsector.bin kernel.bin > os-image.bin`
 
 ### run on vm, create a flp image 
 directly copy kernel.bin to the first sector of the floppy disk image
-* `dd status=noxfer conv=notrunc if=kernel-image.bin of=disk.flp`
+* `dd status=noxfer conv=notrunc if=os-image.bin of=disk.flp`
 
 ### run and use -curses to bypass sdl restrictions
-* `qemu-system-x86_64 -curses -fda kernel-image.bin`
+* `qemu-system-x86_64 -curses -fda os-image.bin`
 
 ### to exit
 * `alt+2`, enter quit
