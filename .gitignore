@@ -1,0 +1,9 @@
+*.elc
+auto-save-list
+tramp
+.\#*
+*.bin
+*.o
+*.flp
+*.img
+*.iso
