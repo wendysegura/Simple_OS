@@ -113,7 +113,7 @@ directly copy kernel.bin to the first sector of the floppy disk image
 * `dd status=noxfer conv=notrunc if=kernel-image.bin of=disk.flp`
 
 ### run and use -curses to bypass sdl restrictions
-* `qemu-system-x86_46 -curses -fda kernel-image.bin`
+* `qemu-system-x86_64 -curses -fda kernel-image.bin`
 
 ### to exit
 * `alt+2`, enter quit
