@@ -14,11 +14,11 @@ KERNEL_OFFSET equ 0x1000 ;  The same offset used when linking the kernel
     jmp $ ; Never executed
 
 	
-%include "bootsect_print.asm"
-%include "hex_print.asm"
-%include "disk_bootsect.asm"
-%include "gdt.asm"
-%include "switch_32bit.asm"
+%include "boot/bootsect_print.asm"
+%include "boot/hex_print.asm"
+%include "boot/disk_bootsect.asm"
+%include "boot/gdt.asm"
+%include "boot/switch_32bit.asm"
 
 [bits 16]
 load_kernel:
@@ -51,26 +51,19 @@ BEGIN_PM:
 
 
 ;; data
-BOOT_DRIVE:
-	db 0 ; It is a good idea to store it in memory because 'dl' may get overwritten
+BOOT_DRIVE db 0 ; It is a good idea to store it in memory because 'dl' may get overwritten
 
-MSG_REAL_MODE:
-	db "Started in 16-bit Real Mode", 0
+MSG_REAL_MODE db "Started in 16-bit Real Mode", 0
 
-MSG_PROT_MODE:
-	db "Landed in 32-bit Protected Mode", 0
+MSG_PROT_MODE db "Landed in 32-bit Protected Mode", 0
 
-MSG_LOAD_KERNEL:
-	db "Now lets load kernel into memory", 0
+MSG_LOAD_KERNEL db "Now lets load kernel into memory", 0
 
-HELLO:
-	db "Hello, Holberton!", 0
+HELLO db "Hello, Holberton!", 0
 
-MSG:
-	db "Presenting simple OS.", 0
+MSG db "Presenting My First OS.", 0
 
-BYE:
-	db "Goodbye!", 0
+BYE db "Goodbye!", 0
 	
 ;; padding with zeroes
 times 510 - ($-$$) db 0
