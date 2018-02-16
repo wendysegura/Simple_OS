@@ -38,4 +38,4 @@ qemu-system-x86_64 -curses -fda os-image.bin
 
 Demo
 ----
-![Alt text](https://github.com/wendysegura/Simple_OS/demo-image/image.png)
+![Alt text](https://github.com/wendysegura/Simple_OS/blob/master/demo-image/image.png)
