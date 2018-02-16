@@ -33,9 +33,9 @@ Process
 
 Run
 ----
-* create a floppy disk image and copy boot sector code to it.
-* `dd status=noxfer conv=notrunc if=kernel-image.bin of=disk.flp`
-* `qemu-system-x86_64 -curses -fda kernel-image.bin`
+* make
+qemu-system-x86_64 -curses -fda os-image.bin
 
 Demo
 ----
+![Alt text](https://github.com/wendysegura/Simple_OS/demo-image/image.png)
